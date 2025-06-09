@@ -1,0 +1,18 @@
+form {
+    margin: auto;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    padding: 16px 32px 24px 32px;
+    border: 1px #1a1a1a solid;
+    border-radius: 12px;
+}
+
+input {
+    padding: 12px;
+}
+
+p {
+    color: #1a1a1a;
+}

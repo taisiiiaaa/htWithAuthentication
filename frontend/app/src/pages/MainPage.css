@@ -1,0 +1,42 @@
+ul {
+    list-style: none;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    padding-right: 40px;
+}
+
+label {
+    color: #1a1a1a;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+li {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    color: #1a1a1a;
+}
+
+button {
+    margin-bottom: 24px;
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+h3 {
+    color: #1a1a1a;
+}
+
+.actions {
+    background-color: transparent;
+    border: 1px #1a1a1a solid;
+    color: #1a1a1a;
+}
