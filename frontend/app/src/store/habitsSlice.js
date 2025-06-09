@@ -56,7 +56,7 @@ export const markAsCompleteThunk = createAsyncThunk('habits/complete', async (ha
       body: JSON.stringify(updatedHabit)
     });
     const data = await res.json();
-    return data;
+    return data.habit;
   }
 );
 
@@ -74,20 +74,21 @@ const habitsSlice = createSlice({
         state.habits.push(action.payload);
         })
         builder.addCase(deleteHabitThunk.fulfilled, (state, action) => {
-            state.habits = state.habits.filter(habit => habit.id !== action.payload);
+          state.habits = state.habits.filter(habit => habit.id !== action.payload);
         });   
         builder.addCase(editHabitThunk.fulfilled, (state, action) => {
-            const updatedHabit = action.payload;
-            const index = state.habits.findIndex(h => h.id === updatedHabit.id);
-            if (index !== -1) {
-                state.habits[index] = updatedHabit;
-            }
+          const updatedHabit = action.payload;
+          const index = state.habits.findIndex(h => h.id === updatedHabit.id);
+          if (index !== -1) {
+              state.habits[index] = updatedHabit;
+          }
         });
         builder.addCase(markAsCompleteThunk.fulfilled, (state, action) => {
-            const index = state.habits.findIndex(habit => habit.id === action.payload.id);
-            if (index !== -1) {
-                state.habits[index] = action.payload;
-            }
+          const updatedHabit = action.payload;
+          const index = state.habits.findIndex(habit => habit.id === updatedHabit.id);
+          if (index !== -1) {
+            state.habits[index] = updatedHabit;
+          }
         });
 }});
 

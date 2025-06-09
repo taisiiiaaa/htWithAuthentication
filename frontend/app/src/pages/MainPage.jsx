@@ -67,7 +67,7 @@ export default function MainPage() {
             {isFormShown && 
                 <form>
                     <label htmlFor='habit'>Enter new habit</label>
-                    <input type='text' placeholder='e.g. everyday morining jogging' ref={titleRef} name='habit' />
+                    <input type='text' placeholder='e.g. everyday morning jogging' ref={titleRef} name='habit' />
                     <button type='button' onClick={handleAddHabit}>{habitIdToEdit ? 'Save' : 'Add'}</button>
                 </form>
             }
@@ -75,8 +75,8 @@ export default function MainPage() {
             <ul>
                 {habits.map(habit => (
                     <li key={habit.id}>
-                        <p>{habit.title}</p>
-                        <button type='button' onClick={() => handleMarkAsComplete(habit.id)} className={`actions ${habit.completed ? 'completed' : ''}`}>{habit.completed ? 'Completed' : 'Mark as complete'}</button>
+                        <p className={`${habit.completed ? 'completed' : ''}`}>{habit.title}</p>
+                        <button type='button' onClick={() => handleMarkAsComplete(habit.id)} className='actions'>{habit.completed ? 'Completed' : 'Mark as complete'}</button>
                         <button type='button' onClick={() => handleEdit(habit.id)} className='actions'>Edit</button>
                         <button type='button' onClick={() => handleDelete(habit.id)} className='actions'>Delete</button>
                     </li>
